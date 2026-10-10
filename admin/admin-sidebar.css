@@ -1,0 +1,109 @@
+.sidebar-toggle,
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    position: fixed !important;
+    inset: 0 auto 0 0;
+    z-index: 1001;
+    width: min(280px, 85vw) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    flex: 0 0 min(280px, 85vw) !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition:
+      transform 220ms ease,
+      visibility 0s linear 220ms;
+    box-shadow: 8px 0 24px rgba(15, 23, 42, 0.18);
+  }
+
+  .admin-sidebar.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 220ms ease,
+      visibility 0s;
+  }
+
+  .admin-sidebar .sidebar-nav {
+    display: block !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .admin-sidebar .nav-item {
+    flex: initial !important;
+    margin: 0 10px 5px !important;
+  }
+
+  .admin-sidebar .sidebar-header {
+    width: auto !important;
+    margin-bottom: 20px !important;
+    padding: 20px 0 !important;
+  }
+
+  .dashboard-wrapper {
+    flex-direction: column !important;
+  }
+
+  .main-content {
+    min-width: 0;
+    padding: 15px !important;
+  }
+
+  .admin-page-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .admin-page-title {
+    min-width: 0;
+  }
+
+  .sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: #1e293b;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+
+  .sidebar-toggle:focus-visible {
+    outline: 3px solid #22c55e;
+    outline-offset: 2px;
+  }
+
+  .sidebar-backdrop.is-visible {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: rgba(15, 23, 42, 0.48);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-sidebar {
+    transition: none;
+  }
+}
